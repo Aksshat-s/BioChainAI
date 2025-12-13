@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Blockchain Viewer</title>
+</head>
+<body>
+    <h1>Blockchain Viewer</h1>
+
+
+    <!-- Blockchain Integrity Check -->
+    <p>
+        Blockchain is:
+        {% if is_valid %}
+            <span style="color: green;">Valid</span>
+        {% else %}
+            <span style="color: red;">Corrupted</span>
+        {% endif %}
+    </p>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Block #</th>
+                <th>Timestamp</th>
+                <th>Summary Preview</th>
+                <th>Hash</th>
+                <th>Previous Hash</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for block in chain %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ block.timestamp }}</td>
+                <td>{{ block.ai_summary[:50] }}...</td>
+                <td>{{ block.hash }}</td>
+                <td>{{ block.previous_hash }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

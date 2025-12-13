@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>BioChainAI - Physiology Input</title>
+</head>
+<body>
+    <div class="container">
+        <h1>BioChainAI - Physiology Input</h1>
+
+
+        <!-- Form to submit user data -->
+        <form action="/submit" method="post">
+            <label>Hydration:</label>
+            <input type="text" name="hydration" placeholder="e.g., 2 liters"><br>
+
+
+            <label>Sleep (hours):</label>
+            <input type="text" name="sleep" placeholder="e.g., 7"><br>
+
+
+            <label>Symptoms:</label>
+            <input type="text" name="symptoms" placeholder="e.g., headache, fatigue"><br>
+
+
+            <label>Stress Level:</label>
+            <input type="text" name="stress" placeholder="e.g., low, medium, high"><br>
+
+
+            <label>Notes:</label>
+            <textarea name="notes" placeholder="Any other notes..."></textarea><br>
+
+
+            <input type="submit" value="Submit Data">
+        </form>
+
+
+        <br>
+
+
+        <!-- View Blockchain button -->
+        <a href="{{ url_for('view_chain') }}"><button>View Blockchain</button></a>
+       
+        <!-- Optional: show a dummy summary when form is submitted -->
+        {% if ai_summary %}
+        <div class="dummy-summary">
+            <h2>AI Summary (Dummy)</h2>
+            <p>{{ ai_summary }}</p>
+            <p class="timestamp">Generated at: {{ timestamp }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

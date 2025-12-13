@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Log Entry</title>
+</head>
+<body>
+    <h1>Log Entry</h1>
+    <table>
+        <tr>
+            <th>Timestamp</th>
+            <td>{{ block.timestamp }}</td>
+        </tr>
+        <tr>
+            <th>Hydration</th>
+            <td>{{ block.user_data.hydration }}</td>
+        </tr>
+        <tr>
+            <th>Sleep</th>
+            <td>{{ block.user_data.sleep }}</td>
+        </tr>
+        <tr>
+            <th>Symptoms</th>
+            <td>{{ block.user_data.symptoms }}</td>
+        </tr>
+        <tr>
+            <th>Stress</th>
+            <td>{{ block.user_data.stress }}</td>
+        </tr>
+        <tr>
+            <th>Notes</th>
+            <td>{{ block.user_data.notes }}</td>
+        </tr>
+        <tr>
+            <th>AI Summary</th>
+            <td>{{ block.ai_summary }}</td>
+        </tr>
+        <tr>
+            <th>Hash</th>
+            <td>{{ block.hash }}</td>
+        </tr>
+        <tr>
+            <th>Previous Hash</th>
+            <td>{{ block.previous_hash }}</td>
+        </tr>
+    </table>
+    <br>
+    <a href="/chain">Back to Blockchain</a>
+</body>
+</html>
